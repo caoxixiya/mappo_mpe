@@ -8,10 +8,10 @@ class Scenario(BaseScenario):
         world = World()
         # set any world properties first
         world.dim_c = 3
-        world.num_landmarks = 3  # 3
+        world.num_landmarks = 3
         world.collaborative = True
         # add agents
-        world.num_agents = 2  # 2
+        world.num_agents = 2
         assert world.num_agents == 2, (
             "only 2 agents is supported, check the config.py.")
         world.agents = [Agent() for i in range(world.num_agents)]

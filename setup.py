@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-setup(name='mpe',
+setup(name='multiagent',
       version='0.0.1',
       description='Multi-Agent Goal-Driven Communication Environment',
       url='https://github.com/openai/multiagent-public',
