@@ -18,12 +18,12 @@ class CryptoAgent(Agent):
 
 class Scenario(BaseScenario):
 
-    def make_world(self,args):
+    def make_world(self):
         world = World()
         # set any world properties first
-        num_agents = args.num_agents#3
+        num_agents = 3
         num_adversaries = 1
-        num_landmarks = args.num_landmarks#2
+        num_landmarks = 2
         world.dim_c = 4
         # add agents
         world.agents = [CryptoAgent() for i in range(num_agents)]

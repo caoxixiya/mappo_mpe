@@ -13,6 +13,6 @@ A simple RL environment of [MPE](https://github.com/openai/multiagent-particle-e
 ```commandline
 git clone https://github.com/caoxixiya/mappo_mpe.git
 cd mappo_mpe
-pip3 install -U .
+pip install -U .
 ```
 

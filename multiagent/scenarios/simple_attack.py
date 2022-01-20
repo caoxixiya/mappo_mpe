@@ -3,14 +3,14 @@ from multiagent.core import World, Agent, Landmark
 from multiagent.scenario import BaseScenario
 
 class Scenario(BaseScenario):
-    def make_world(self, args):
+    def make_world(self):
         world = World()
         # set any world properties first
-        #world.dim_c = 2
-        num_good_agents = args.num_good_agents#1
-        num_adversaries = args.num_adversaries#3
+
+        num_good_agents = 1
+        num_adversaries = 2
         num_agents = num_adversaries + num_good_agents
-        num_landmarks = args.num_landmarks#3
+        num_landmarks = 3
         assert num_landmarks==num_agents, ("should use the same number!")
         # add agents
         world.agents = [Agent() for i in range(num_agents)]
@@ -87,7 +87,7 @@ class Scenario(BaseScenario):
         return main_reward
 
     # agents are penalized for exiting the screen, so that they can be caught by the adversaries
-    def bound(x):
+    def bound(self, x):
         if x < 0.9:
             return 0
         if x < 1.0:
@@ -116,7 +116,8 @@ class Scenario(BaseScenario):
 
         for p in range(world.dim_p):
             x = abs(agent.state.p_pos[p])
-            rew -= bound(x)
+            # pdb.set_trace()
+            rew -= self.bound(x)
 
         return rew
 
@@ -141,7 +142,8 @@ class Scenario(BaseScenario):
         
         for p in range(world.dim_p):
             x = abs(agent.state.p_pos[p])
-            rew -= bound(x)
+            # pdb.set_trace()
+            rew -= self.bound(x)
 
         return rew
 
